@@ -1,0 +1,46 @@
+---
+extends:
+  - airbnb-base
+  - plugin:import/typescript
+  - prettier
+  - prettier/@typescript-eslint
+  - plugin:@typescript-eslint/recommended
+plugins:
+  - "@typescript-eslint"
+  - import
+env:
+  node: true
+  es6: true
+parser: "@typescript-eslint/parser"
+parserOptions:
+  sourceType: module
+  ecmaVersion: 2020
+  ecmaFeatures:
+    modules: true
+rules:
+  "@typescript-eslint/no-unused-expressions": error
+  "@typescript-eslint/explicit-module-boundary-types": off
+  no-unused-expressions: off
+  import/no-unresolved: off
+  import/named: off
+  import/no-named-as-default-member: off
+  import/extensions:
+    - off
+  import/order:
+    - error
+    - groups:
+        - builtin
+        - external
+        - internal
+        - parent
+        - sibling
+        - index
+      newlines-between: always
+overrides:
+  - files:
+      - "**/*.d.ts"
+    rules:
+      "@typescript-eslint/no-explicit-any": off
+settings:
+  import/resolver:
+    typescript: {}
